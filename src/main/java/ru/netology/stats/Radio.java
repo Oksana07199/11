@@ -1,98 +1,112 @@
 package ru.netology.stats;
 public class Radio {
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int currentVolume;
+
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
+        if (newCurrentVolume < minVolume) {
             return;
         }
-        if (newCurrentVolume > 100) {
+        if (newCurrentVolume > maxVolume) {
             return;
         }
-        this.currentVolume = newCurrentVolume;
+        currentVolume = newCurrentVolume;
     }
 
     public void setToMaxVolume() {
-        currentVolume = 100;
+        currentVolume = maxVolume;
     }
 
     public void setToMinVolume() {
-        currentVolume = 0;
+        currentVolume = minVolume;
     }
 
-
     public void setIncreaseVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         } else {
-            currentVolume = 0;
+            currentVolume = minVolume;
 
         }
     }
 
     public void setDecreaseVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         } else {
-            currentVolume = 0;
+            currentVolume = minVolume;
 
         }
     }
 
+
+    private int maxWave = 9;
+    private int minWave = 0;
     private int currentWave;
+    private int quantityWave;
+
+    public Radio() {
+        this.maxWave = 9;
+    }
+
+    public Radio(int quantityWave) {
+        this.maxWave = quantityWave - 1;
+    }
 
     public int getCurrentWave() {
         return currentWave;
     }
 
     public void setCurrentWave(int newCurrentWave) {
-        if (newCurrentWave > 9) {
+        if (newCurrentWave > maxWave) {
             return;
         }
-        if (newCurrentWave < 0) {
+        if (newCurrentWave < minWave) {
             return;
         }
-        this.currentWave = newCurrentWave;
+        currentWave = newCurrentWave;
     }
 
     public void setToMaxWave() {
-        currentWave = 9;
+        currentWave = maxWave;
     }
 
     public void setToMinWave() {
-        currentWave = 0;
+        currentWave = minWave;
     }
 
     public void setWaveNextMax() {
 
-        if (currentWave < 9) {
+        if (currentWave < maxWave) {
             currentWave = currentWave + 1;
         } else {
-            currentWave = 0;
+            currentWave = minWave;
         }
     }
 
     public void setWavePrevMin() {
-        if (currentWave > 0) {
+        if (currentWave > minWave) {
             currentWave = currentWave - 1;
         } else {
-            currentWave = 9;
+            currentWave = maxWave;
         }
     }
 
     public void setIncreaseWave() {
-        if (currentWave < 9) {
+        if (currentWave < maxWave) {
             currentWave = currentWave + 1;
         }
 
     }
 
     public void setDecreaseWave() {
-        if (currentWave > 0) {
+        if (currentWave > minWave) {
             currentWave = currentWave - 1;
         }
     }

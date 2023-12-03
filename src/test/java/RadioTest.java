@@ -97,6 +97,17 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldSetWaveFromQuantity() {
+        Radio receiver = new Radio(20);
+
+        receiver.setCurrentWave(11);
+
+        int expected = 11;
+        int actual = receiver.getCurrentWave();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetWave() {
         Radio receiver = new Radio();
 
